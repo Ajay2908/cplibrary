@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+	stack <pair <int, int> > st;
+    vector <int> smaller(n);
+    for (int i = n - 1; i >= 0; i--) {
+        while (!st.empty() && st.top().first >= v[i]) {
+            st.pop();
+        }
+        if (st.empty()) {
+            smaller[i] = -1; // no smaller element 
+            st.push({v[i], i});
+        }
+        else {
+            smaller[i] = st.top().second; // change it to .first to get element
+            st.push({v[i], i});
+        }
+    }
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>next-small</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

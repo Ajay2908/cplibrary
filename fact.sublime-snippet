@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+        
+bool fact_generated = false;
+vector <int> f, invf;
+void generate_fact(int N = 2e5 + 5)
+{
+    fact_generated = true;
+    f.assign(N + 1, 0);
+    invf.assign(N + 1, 0);
+    f[0] = 1;
+    invf[0] = 1;
+    for (int i = 1; i < N; i++)
+    {
+        f[i] = (f[i - 1] * i) % mod;
+        invf[i] = minv(f[i]);
+    }
+}
+int ncr(int n, int r)
+{
+    assert(fact_generated);
+    if (n < 0 || r < 0 || n - r < 0) return 0;
+    return mmul(mmul(f[n], invf[r]), invf[n - r]);
+}
+int npr(int n, int r)
+{
+    assert(fact_generated);
+    if (n < 0 || r < 0 || n - r < 0) return 0;
+    return mmul(f[n], invf[n - r]);
+}
+
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>fact</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

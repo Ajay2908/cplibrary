@@ -1,0 +1,54 @@
+<snippet>
+	<content><![CDATA[
+class dsu {
+private:
+	vector <int> parent, rank, set_size;
+	int num_sets;
+public:
+	dsu (int _n = N) {
+		set_size.assign(_n + 1, 1);
+		num_sets = _n;
+		rank.assign(_n + 1, 0);
+		parent.assign(_n + 1, 0);
+		for (int i = 1; i <= _n; i++) {
+			parent[i] = i;
+		}
+	}
+	int find(int node) {
+		if (parent[node] == node)return node;
+		return parent[node] = find(parent[node]);
+	}
+	bool is_same_set(int x, int y) {
+		return (find(x) == find(y));
+	}
+	bool merge(int x, int y) {
+		if (is_same_set(x, y)) return false;
+		num_sets--;
+		int a = find(x), b = find(y);
+		if (rank[a] > rank[b]) {
+			parent[b] = a;
+			set_size[a] += set_size[b];
+		}
+		else {
+			parent[a] = b;
+			set_size[b] += set_size[a];
+			if (rank[a] == rank[b]) {
+				rank[b]++;
+			}
+		}
+		return true;
+	}
+	int no_of_sets() {
+		return num_sets;
+	}
+	int size_of_set(int node) {
+		return set_size[find(node)];
+	}
+};
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dsu</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

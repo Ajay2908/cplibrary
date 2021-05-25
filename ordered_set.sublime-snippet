@@ -1,0 +1,62 @@
+<snippet>
+	<content><![CDATA[
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/detail/standard_policies.hpp>
+using namespace std;
+#ifdef LOCAL
+#include "debug.h"
+#else
+#define deb(...)
+#endif
+#define endl "\n"
+#define pb push_back
+#define int long long
+#define ll long long
+#define pii pair<int,int>
+#define F first
+#define S second
+#define all(c) c.begin(),c.end()
+#define read(v) for(auto &it:v) cin>>it;
+const int inf = 1e18;
+const int N   = 2e5 + 5;
+const int mod = 1000000007;
+using namespace __gnu_pbds;
+
+template <typename num_t>
+using ordered_set = tree<num_t, null_type, less<num_t>, rb_tree_tag, tree_order_statistics_node_update>;
+
+template <typename num_t>
+using ordered_multiset = tree<num_t, null_type, less_equal<num_t>, rb_tree_tag, tree_order_statistics_node_update>;
+
+//when using multiset lower_bound works as upperbound
+//                      and upper bound works as lower_bound
+
+// To erase an element from ordered multiset use this
+// auto it = st.upper_bound(element)
+// st.erase(it)
+
+//Two key uses of Ordered Sets
+//1)find_by_order(k) returns element at index k (zero indexed)
+//2)order_of_key(element) returns the number of elements strictly smaller than element
+
+void testCase() {
+
+
+}
+
+int32_t main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0); cout.tie(0);
+	int  t = 1;
+	// cin >> t;
+	while (t--)testCase();
+	return 0;
+}
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>ord</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
