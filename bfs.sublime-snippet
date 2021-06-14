@@ -22,7 +22,7 @@ void bfs(int source)
             if (!visited[child])
             {
                 dist[child] = dist[node] + 1;
-                bfs(child);
+                Q.push(child);
             }
 
         }
